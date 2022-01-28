@@ -19,11 +19,8 @@ public:
     {
         if(root == NULL)
             return true;
-        
-        if(root->val != val)
-            return false;
-        
-        return univalued(root->left,val) && univalued(root->right,val);
+                
+        return root->val == val && univalued(root->left,val) && univalued(root->right,val);
         
     }
 };
