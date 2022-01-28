@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    bool isUnivalTree(TreeNode* root) {
+   bool isUnivalTree(TreeNode* root) {
         return univalued(root,root->val);
     }
     
@@ -23,11 +23,7 @@ public:
         if(root->val != val)
             return false;
         
-        int leftans = univalued(root->left,val);
-        int rightans = univalued(root->right,val);
-        
-        
-        return leftans && rightans;
+        return univalued(root->left,val) && univalued(root->right,val);
         
     }
 };
