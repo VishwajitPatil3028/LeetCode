@@ -19,26 +19,22 @@ public:
 */
 
 class Solution {
-    
-    private:
-    void dfs( Node * node, vector<int>& preorder)
-    {
-        if(node == NULL)
+private :
+    void Preorder(Node* root, vector<int> &ans){
+        if(root == NULL) return ;
+        ans.push_back(root->val);
+        for(Node* child : root->children)
         {
-            return;
+            Preorder(child, ans);
         }
-        
-        preorder.push_back(node->val);
-        for(Node* child : node->children)
-        {
-            dfs(child,preorder);
-        }
+        return;
     }
-    
-    public:
-        vector<int> preorder(Node* root) {
-            vector<int> preorder;
-            dfs(root,preorder);
-            return preorder;
-        }
+
+public:
+    vector<int> preorder(Node* root) {
+        vector<int>ans;
+        Preorder(root, ans);
+        
+        return ans;
+    }
 };
