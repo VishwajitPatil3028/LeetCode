@@ -17,10 +17,7 @@ public:
     
     bool univalued(TreeNode* root, int val)
     {
-        if(root == NULL)
-            return true;
-                
+        if(root == NULL) return true;
         return root->val == val && univalued(root->left,val) && univalued(root->right,val);
-        
     }
 };
