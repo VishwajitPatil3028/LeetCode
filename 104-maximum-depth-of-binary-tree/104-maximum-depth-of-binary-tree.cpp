@@ -15,9 +15,12 @@ public:
         
         if(root == NULL) return 0 ;
         
-        int leftCount = maxDepth(root->left);
-        int rightCount =maxDepth(root->right);
+        // int leftCount = maxDepth(root->left);
+        // int rightCount =maxDepth(root->right);
         
-        return 1+max(leftCount,rightCount);
+        // return 1+max(leftCount,rightCount);
+        
+        return 1+max(maxDepth(root->left),maxDepth(root->right));
+        
     }
 };
