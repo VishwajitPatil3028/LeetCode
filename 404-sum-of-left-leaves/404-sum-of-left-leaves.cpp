@@ -10,27 +10,17 @@
  * };
  */
 class Solution {
-    
-    private: 
-    void sum(TreeNode* root, bool isLeft, int &ans)
-    {
-        if(root == NULL)
-            return;
-        
-        if(root->left == NULL && root->right == NULL && isLeft)
-        {
-            ans += root->val;
-        }
-        
-        sum(root->left,true,ans);
-        sum(root->right,false,ans);
-    }
-    
 public:
     int sumOfLeftLeaves(TreeNode* root) {
-        int ans = 0;
-        sum(root,false,ans);
-        
-        return ans;
+        return sum(root,false);
     }
+    
+    int sum(TreeNode* root , bool isLeft){
+        if(root == NULL) return 0;
+        
+        if(root->left == NULL && root->right == NULL && isLeft == true)return root->val;
+        
+        return sum(root->left,true) + sum(root->right,false);
+    }
+    
 };
