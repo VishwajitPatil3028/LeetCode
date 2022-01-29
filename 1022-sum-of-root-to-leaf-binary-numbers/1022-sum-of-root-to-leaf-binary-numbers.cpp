@@ -33,7 +33,7 @@ public:
     
     int sumRootToLeaf(TreeNode* root) {
         int* answer = new int[1] ;
-        answer[0] = 0 ;
+        answer[0] = 0 ;     
                 
         rootToLeaf(root,"",answer);
         
