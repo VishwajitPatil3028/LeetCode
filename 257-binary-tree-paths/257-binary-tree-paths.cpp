@@ -10,29 +10,27 @@
  * };
  */
 class Solution {
-public:
-    vector<string> binaryTreePaths(TreeNode* root) {
-        vector<string> answer ;
-        rootToLeaf(root,"",answer);
-        return answer;
-    }
-    
-    private:
-    
-    void rootToLeaf(TreeNode* root, string currentPath, vector<string>& answer)
-    {
-        if(root == NULL)
+  
+private:
+    void rootToLeaf(TreeNode* root, string currentStr, vector<string>&ans){
+        if(root == NULL) return;
+        if(root->left == NULL && root->right == NULL){
+            currentStr+= to_string(root->val);  
+            ans.push_back(currentStr);
             return;
-        
-        if(root->left == NULL && root->right == NULL)
-        {
-            currentPath += to_string(root->val);
-            answer.push_back(currentPath);
         }
         
-        currentPath += to_string(root->val) + "->";
-        rootToLeaf(root->left,currentPath,answer);
-        rootToLeaf(root->right,currentPath,answer);
-        return;
+        currentStr+= to_string(root->val)+"->";
+       rootToLeaf(root->left,currentStr,ans); 
+       rootToLeaf(root->right,currentStr,ans);  
     }
+    
+public:
+    vector<string> binaryTreePaths(TreeNode* root) {
+        vector<string>ans;
+        rootToLeaf(root,"",ans);
+        
+        return ans;
+    }
+    
 };
