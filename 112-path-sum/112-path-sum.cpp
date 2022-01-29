@@ -14,20 +14,12 @@ public:
     bool hasPathSum(TreeNode* root, int targetSum) {
         return isPossible(root,targetSum,0);
     }
-    
-    private:
-    
-    bool isPossible(TreeNode* root, int target, int currentSum)
+    bool isPossible(TreeNode* root,int target , int sum)
     {
-        if(root == NULL)
-            return false;
-        
-        if(root->left == NULL && root->right == NULL)
-        {
-            return currentSum + root->val == target;
-        }
-        
-        return isPossible(root->left,target,currentSum+root->val) || isPossible(root->right,target,currentSum+root->val);
+        if(root == NULL) return false;
+        if(root->left == NULL && root->right==NULL)
+            return sum+root->val == target;
+     return isPossible(root->left,target,sum+root->val) || isPossible(root->right,target,sum+root->val) ;
         
     }
 };
