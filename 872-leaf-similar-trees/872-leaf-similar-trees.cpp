@@ -12,16 +12,16 @@
 class Solution {
 
 private: 
-    void isSimilar(TreeNode* root,vector<int>& a){
+    void isSimilar(TreeNode* root, vector<int>& v){
         if(root->left == NULL && root->right == NULL){
-            a.push_back(root->val);
-            return ;
+            v.push_back(root->val);
+            return;
         }
         
         if(root->left != NULL)
-            isSimilar(root->left,a);
+            isSimilar(root->left,v);
         if(root->right != NULL)
-            isSimilar(root->right,a);
+            isSimilar(root->right,v);
     }
     
 public:
