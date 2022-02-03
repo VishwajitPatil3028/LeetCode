@@ -10,17 +10,18 @@
  * };
  */
 class Solution {
+    
+private: 
+    int sum(TreeNode* root, bool isLeft){
+        if(root == NULL)return 0;
+        
+        if(root->left == NULL && root->right == NULL && isLeft == true) return root->val;
+        
+        return sum(root->left,true) + sum(root->right, false);
+        }
+    
 public:
     int sumOfLeftLeaves(TreeNode* root) {
         return sum(root,false);
-    }
-    
-    int sum(TreeNode* root , bool isLeft){
-        if(root == NULL) return 0;
-        
-        if(root->left == NULL && root->right == NULL && isLeft == true)return root->val;
-        
-        return sum(root->left,true) + sum(root->right,false);
-    }
-    
+    }   
 };
